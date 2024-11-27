@@ -131,3 +131,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://djangoauthsystem-production.up.railway.app',
+    'https://django-auth-system-pgfe.onrender.com'
+]
