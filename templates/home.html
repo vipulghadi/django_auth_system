@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="display-4 mb-4">
+                {% if request.user.is_authenticated %}
+                    Welcome, {{ request.user.email }}!
+                {% else %}
+                    Welcome to WhatBytes
+                {% endif %}
+            </h1>
+            <p class="lead mb-5">
+                {% if request.user.is_authenticated %}
+                    Explore the amazing features of Our App and make the most of your experience.
+                {% else %}
+                    Discover a world of possibilities. Join us or log in to get started on your journey.
+                {% endif %}
+            </p>
+
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn btn-primary btn-lg px-4 gap-3">Logout</a>
+                    <a href="{% url 'my-profile' %}" class="btn btn-outline-secondary btn-lg px-4">My Profile</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
+                    <a href="{% url 'signup' %}" class="btn btn-outline-secondary btn-lg px-4">Create Account</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
